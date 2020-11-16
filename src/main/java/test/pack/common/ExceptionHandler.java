@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ExceptionHandler {
     public void writeError(Exception e, HttpServletResponse response) {
         try {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.toString());
+            System.out.println(e); // pretending logging
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Pretending to be an error page");
         } catch (IOException ioException) {
             throw new RuntimeException("Everything is broken", ioException);
         }
